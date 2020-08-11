@@ -67,6 +67,7 @@ with open(EMOTICONS_FILE, 'r') as f:
 HASHTAG = r"""(?:\#\w+)"""
 TWITTER_USER = r"""(?:@\w+)"""
 REDDIT_USER = r"(?:\/?u\/\w+)"
+REDDIT_SUB = r"(?:\/?r\/\w+)"
 
 #separately compiled regexps
 TWITTER_USER_RE = re.compile(TWITTER_USER, re.UNICODE)

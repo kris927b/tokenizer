@@ -10,7 +10,7 @@ Some unit tests are included for the regularizer and tokenizer scripts.
 Easy peasy, lemon squeezy. (I tested in a virtualenv, and it worked!).
 
 ```
-pip install git+https://github.com/erikavaris/tokenizer.git
+pip install git+https://github.com/kris927b/tokenizer.git
 ```
 
 ## Usage
@@ -59,8 +59,9 @@ print(tokens)
 
 ## Reddit version
 
-A version of the tokenizer sensitive to Reddit usernames is also provided.
+A version of the tokenizer sensitive to Reddit usernames and subreddits is also provided.
 Will work with either the `/u/name` or `u/name` format.
+And with the `/r/Denmark` or `r/Denmark` format.
 
 ```
 from tokenizer import tokenizer
@@ -73,12 +74,12 @@ print(tokens)
 
 ['Hey', 'u/NLPer', '!', 'This', 'is', 'a', '#NLProc', 'message', '.']
 
-text = "Hey /u/NLPer! THis is a #NLProc message."
+text = "Hey /r/NLP! THis is a #NLProc message."
 tokens = R.tokenize(text)
 
 print(tokens)
 
-['Hey', '/u/NLPer', '!', 'THis', 'is', 'a', '#NLProc', 'message', '.']
+['Hey', '/r/NLP', '!', 'THis', 'is', 'a', '#NLProc', 'message', '.']
 ```
 
 
