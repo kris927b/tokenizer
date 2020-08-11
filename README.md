@@ -60,7 +60,7 @@ print(tokens)
 ## Reddit version
 
 A version of the tokenizer sensitive to Reddit usernames and subreddits is also provided.
-Will work with either the `/u/name` or `u/name` format.
+Will work with the `/u/name` or `u/name` format.
 And with the `/r/Denmark` or `r/Denmark` format.
 
 ```
@@ -81,5 +81,3 @@ print(tokens)
 
 ['Hey', '/r/NLP', '!', 'THis', 'is', 'a', '#NLProc', 'message', '.']
 ```
-
-

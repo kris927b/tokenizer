@@ -1,4 +1,4 @@
-#tokenizer, borrowing/built heavily from nltk
+#tokenizer, borrowing/built heavily from nltk and https://github.com/erikavaris
 import nltk
 from nltk.tokenize.casual import remove_handles, reduce_lengthening, _str_to_unicode, _replace_html_entities # EMOTICONS, EMOTICON_RE
 import re
@@ -92,19 +92,21 @@ ASCII_ARROWS = r"""[\-]+>|<[\-]+"""
 #HANGS = r"""([^a-zA-Z0-9])\1{3,}"""
 # Remaining word types:
 WORDS = r"""
-    (?:[^\W\d_](?:[^\W\d_]|['\-_])+[^\W\d_]) # Words with apostrophes or dashes.
+    (?:[^\W\d_](?:[^\W\d_]|['\-_])+[^\W\d_])    # Words with apostrophes or dashes.
     |
-    (?:[+\-]?\d+[,/.:-]\d+[+\-]?)  # Numbers, including fractions, decimals.
+    (?:\[[a-zA-Z0-9]+\])                        # Words in brackets
     |
-    (?:[\w_]+)                     # Words without apostrophes or dashes.
+    (?:[+\-]?\d+[,/.:-]\d+[+\-]?)               # Numbers, including fractions, decimals.
     |
-    (?:\.(?:\s*\.){1,})            # Ellipsis dots.
+    (?:[\w_]+)                                  # Words without apostrophes or dashes.
     |
-    (?:\S)                         # Everything else that isn't whitespace.
+    (?:\.(?:\s*\.){1,})                         # Ellipsis dots.
+    |
+    (?:\S)                                      # Everything else that isn't whitespace.
     """
 TWITTER_REGEXPS = [URLS, PHONE] + EMOTICONS + [HTML_TAGS, ASCII_ARROWS, TWITTER_USER, HASHTAG, EMAILS, WORDS]
 
-REDDIT_REGEXPS = [URLS, PHONE] + EMOTICONS + [HTML_TAGS, ASCII_ARROWS, REDDIT_USER, HASHTAG, EMAILS, WORDS]
+REDDIT_REGEXPS = [URLS, PHONE] + EMOTICONS + [HTML_TAGS, ASCII_ARROWS, REDDIT_SUB, REDDIT_USER, HASHTAG, EMAILS, WORDS]
 
 class TweetTokenizer():
 
